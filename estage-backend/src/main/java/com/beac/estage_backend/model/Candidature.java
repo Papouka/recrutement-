@@ -42,6 +42,6 @@ public// Annotation pour MongoDB
     private LocalDate submissionDate = LocalDate.now();
     private String status = "Reçue";
 
-    // Relation
+
     private String offreStageId; // On stocke l'ID, pas l'objet
 }

@@ -10,8 +10,10 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import org.springframework.security.core.GrantedAuthority;
 
 @Service
 public class JwtService {
@@ -69,8 +71,16 @@ public class JwtService {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        // On pourrait ajouter les rôles dans le token ici si nécessaire
-        // claims.put("roles", userDetails.getAuthorities());
+
+        // On extrait les rôles (autorités) de l'objet UserDetails
+        List<String> roles = userDetails.getAuthorities()
+                .stream()
+                .map(GrantedAuthority::getAuthority)
+                .toList();
+
+        // On ajoute la liste des rôles au "payload" du token
+        claims.put("roles", roles);
+
         return createToken(claims, userDetails.getUsername());
     }
 

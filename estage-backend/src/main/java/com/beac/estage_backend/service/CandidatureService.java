@@ -52,7 +52,6 @@ public class CandidatureService {
             Candidature candidature,
             MultipartFile cv,
             MultipartFile motivation,
-            // Si vous réintégrez diplome et identite, il faudra les décommenter ici
              MultipartFile diplome,
              MultipartFile identite,
             String offerId

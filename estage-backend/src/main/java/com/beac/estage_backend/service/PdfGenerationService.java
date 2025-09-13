@@ -48,7 +48,7 @@ public class PdfGenerationService {
             Font fontCellule = FontFactory.getFont(FontFactory.HELVETICA, 9);
 
             // --- NOUVEAU : Formateur de date ---
-            // Pour afficher la date dans un format lisible (ex: "23 juillet 2025")
+            // Pour afficher la date dans un format lisible
             DateTimeFormatter dateFormatter = DateTimeFormatter
                     .ofLocalizedDate(FormatStyle.LONG)
                     .withLocale(Locale.FRENCH);
